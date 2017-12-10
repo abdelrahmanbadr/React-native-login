@@ -6,17 +6,10 @@ import {
 	TextInput,
 	Image,
 } from 'react-native';
-import {
-	Platform,
-
-	Text	
-	
-  } from 'react-native';
 
 export default class UserInput extends Component {
 	render() {
 		return (
-			
 			<View style={styles.inputWrapper}>
 				<Image source={this.props.source}
 					style={styles.inlineImg} />
@@ -31,16 +24,6 @@ export default class UserInput extends Component {
 			</View>
 		);
 	}
-	// render() {
-	// 	return (
-	// 	  <View >
-	// 		<Text >
-	// 		 Hello
-	// 		</Text>
-		  
-	// 	  </View>
-	// 	);
-	//   }
 }
 
 // UserInput.propTypes = {

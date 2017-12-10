@@ -12,7 +12,7 @@ import {
   View,
   Image
 } from 'react-native';
-import LoginPage from './app/pages/LoginPage';
+import LoginPage from './app/pages/LoginPage/LoginPage';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -23,14 +23,12 @@ const instructions = Platform.select({
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} />
+      <View >
+      {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
               
             <LoginPage />
       
-        <Text style={styles.welcome}>
-         Hello
-        </Text>
+       
       
       </View>
     );

@@ -56,18 +56,10 @@ export default class Form extends Component {
 			</KeyboardAvoidingView>
 		);
 	}
-// 	 render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//          Hello
-//         </Text>
-      
-//       </View>
-//     );
-//   }
 }
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	container: {
