@@ -12,7 +12,10 @@ import {
   View,
   Image
 } from 'react-native';
+
 import LoginPage from './app/pages/LoginPage/LoginPage';
+import Test from './app/pages/Test';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -27,6 +30,8 @@ export default class App extends Component {
       {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
               
             <LoginPage />
+            {/* <Test /> */}
+            
       
        
       
