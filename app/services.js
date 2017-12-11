@@ -1,6 +1,8 @@
+import { AsyncStorage } from 'react-native';
+
 var global = 'http://192.168.88.2/pvradar/public/api/';
 
-export function Login(data){
+export function Login(data,props){
 
         fetch(global+"authenticate", {
             method: "POST",
@@ -9,10 +11,16 @@ export function Login(data){
               'Content-Type': 'application/json',
             },
             body:  JSON.stringify(data)
-         }).then(function(response){ 
-            console.log(response)
-           // navigate('DrugPage', { name: 'Jane' });
-            return response.json();   
+         }).then((response) => response.json())
+         .then((responseJson) => {
+            console.log(responseJson.status)
+
+            if(responseJson.status == 'ok'){
+              AsyncStorage.setItem("email",data.email);
+              AsyncStorage.setItem("password",data.password);
+               props.navigation.navigate('DrugsPage', { name: 'Jane' });
+            }
+              
            })
            .then(function(data){ 
            console.log(data)

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 
-export default class DrugPage extends Component {
+export default class DrugsPage extends Component {
   
   render() {
     const { navigate } = this.props.navigation;
@@ -17,12 +17,12 @@ export default class DrugPage extends Component {
       <View >
      
        <Text> Drug Page </Text>
-       <Button
+       {/* <Button
         title="Go to Jane's profile"
         onPress={() =>
-          navigate('DrugPage', { name: 'Jane' })
-        }
-      />
+          navigate('DrugsPage', { name: 'Jane' })
+        }/> */}
+      
       
       </View>
     );

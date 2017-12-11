@@ -12,7 +12,8 @@ import {
   View,
   Image,
   Button,
-  AppRegistry
+  AppRegistry,
+  AsyncStorage
   
 } from 'react-native';
 
@@ -27,18 +28,36 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component {
 
+
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={myKey:''};
+    
+    AsyncStorage.getItem("email").then((value) => {
+      this.setState({"myKey": value});    
+  }).done();
+    
+    
+  }
+ 
   render() {
     const { navigate } = this.props.navigation;
+    // if(value != null){
+    //   return <text> xx </text>  ;
+    // }
     return (
+      
       <View >
       {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
               
-            {/* <LoginPage /> */}
+            {/* <LoginForm /> */}
 
-          <Text>Hello </Text>
+          {/* <Text>Hello </Text>
             {/* <Test /> */}
+            
+            <Text>  {this.state.myKey} </Text>
             <Button
         title="Go to Jane's profile"
         onPress={() =>
@@ -60,6 +79,7 @@ const screens = StackNavigator({
   DrugsPage: { screen: DrugsPage },
   LoginForm: { screen: LoginForm},
 });
+
 AppRegistry.registerComponent('pvradar', () => screens);
 
 const styles = StyleSheet.create({

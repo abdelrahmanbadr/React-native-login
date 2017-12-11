@@ -17,8 +17,8 @@ export default class LoginForm extends Component {
             "email": this.state.email,
             "password": this.state.password
          }
-         Login(data);
-         
+         Login(data,this.props);
+       
       }
      
      
@@ -34,12 +34,7 @@ export default class LoginForm extends Component {
                   
          
         <View style={styles.container}>
-         <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigate('DrugsPage', { name: 'Jane' })
-        }
-      />
+        
         
         <TextInput style = {styles.input} 
         autoCapitalize="none" 
