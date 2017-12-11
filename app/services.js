@@ -18,7 +18,7 @@ export function Login(data,props){
             if(responseJson.status == 'ok'){
               AsyncStorage.setItem("email",data.email);
               AsyncStorage.setItem("password",data.password);
-               props.navigation.navigate('DrugsPage', { name: 'Jane' });
+               props.navigate('DrugsPage', { name: 'Jane' });
             }
               
            })

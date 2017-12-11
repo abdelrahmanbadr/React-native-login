@@ -12,7 +12,7 @@ import {
 export default class DrugsPage extends Component {
   
   render() {
-    const { navigate } = this.props.navigation;
+    
     return (
       <View >
      

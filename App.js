@@ -33,43 +33,55 @@ const instructions = Platform.select({
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.state={myKey:''};
+    this.state={email:''};
     
+    //getCache('credentials');
     AsyncStorage.getItem("email").then((value) => {
-      this.setState({"myKey": value});    
+      console.log(value);
+      this.setState({"email": value});
+      
+    
   }).done();
     
     
   }
- 
+  // async getCache(key){
+  //   try{
+  //       let value = await AsyncStorage.getItem(key);
+  //       console.log(value.json());
+  //       return value.json();
+  //   }
+  //   catch(e){
+  //       console.log('caught error', e);
+  //       // Handle exceptions
+  //   }
+
+//    }
+// componentDidMount() {
+//   AsyncStorage.getItem("email").then((value) => {
+//       this.setState({"myKey": value});
+//   }).done();
+// }
+
   render() {
     const { navigate } = this.props.navigation;
     // if(value != null){
     //   return <text> xx </text>  ;
     // }
+    if(this.state.email == null){
     return (
-      
       <View >
-      {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
-              
-            {/* <LoginForm /> */}
-
-          {/* <Text>Hello </Text>
-            {/* <Test /> */}
-            
-            <Text>  {this.state.myKey} </Text>
-            <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigate('LoginForm', { name: 'Jane' })
-        }
-      />
-            
-      
-       
-      
+            <LoginForm navigate={navigate} /> 
       </View>
     );
+  }else{
+    return (
+      <View >
+            <DrugsPage navigate={navigate} /> 
+      </View>
+    );
+
+  }
   }
 }
 

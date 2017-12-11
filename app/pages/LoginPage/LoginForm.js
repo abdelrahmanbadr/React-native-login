@@ -15,7 +15,8 @@ export default class LoginForm extends Component {
       userLogin = ()=>{
         var data = {
             "email": this.state.email,
-            "password": this.state.password
+            "password": this.state.password,
+        
          }
          Login(data,this.props);
        
@@ -23,7 +24,7 @@ export default class LoginForm extends Component {
      
      
   render() {
-    const { navigate } = this.props.navigation;
+    //const { navigate } = this.props.navigation;
     return (
         <View >
         <View style={styles.loginContainer}>
