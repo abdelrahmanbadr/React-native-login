@@ -62,6 +62,10 @@ export default class App extends Component {
 //       this.setState({"myKey": value});
 //   }).done();
 // }
+static navigationOptions = {
+  title: 'Welcome',
+  header: null
+};
 
   render() {
     const { navigate } = this.props.navigation;

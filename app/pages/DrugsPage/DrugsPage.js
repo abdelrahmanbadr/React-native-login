@@ -10,13 +10,16 @@ import {
 
 
 export default class DrugsPage extends Component {
-  
+  static navigationOptions = {
+    title: 'Welcome',
+    header: null
+  };
   render() {
     
     return (
       <View >
      
-       <Text> Drug Page </Text>
+       <Text> Drug Pagex </Text>
        {/* <Button
         title="Go to Jane's profile"
         onPress={() =>
