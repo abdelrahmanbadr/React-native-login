@@ -1,4 +1,5 @@
 var global = 'http://192.168.88.2/pvradar/public/api/';
+
 export function Login(data){
 
         fetch(global+"authenticate", {
@@ -10,6 +11,7 @@ export function Login(data){
             body:  JSON.stringify(data)
          }).then(function(response){ 
             console.log(response)
+           // navigate('DrugPage', { name: 'Jane' });
             return response.json();   
            })
            .then(function(data){ 

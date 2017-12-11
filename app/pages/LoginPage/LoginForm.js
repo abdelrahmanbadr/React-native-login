@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity,StyleSheet,Button,Image} from 'react-native';
 import {Login} from '../../services';
+import { StackNavigator } from 'react-navigation';
 
 
 export default class LoginForm extends Component {
@@ -17,28 +18,28 @@ export default class LoginForm extends Component {
             "password": this.state.password
          }
          Login(data);
-        //   fetch("http://192.168.88.2/pvradar/public/api/authenticate", {
-        //     method: "POST",
-        //     headers: {
-        //       'Accept': 'application/json',
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body:  JSON.stringify(data)
-        //  }).then(function(response){ 
-        //     console.log(response)
-        //     return response.json();   
-        //    })
-        //    .then(function(data){ 
-        //    console.log(data)
-        //    });
          
       }
      
      
   render() {
+    const { navigate } = this.props.navigation;
     return (
-        
+        <View >
+        <View style={styles.loginContainer}>
+                    <Image resizeMode="contain" style={styles.logo} source={require('./logo.png')} />
+         </View>
+  
+            <View style={styles.formContainer}>
+                  
+         
         <View style={styles.container}>
+         <Button
+        title="Go to Jane's profile"
+        onPress={() =>
+          navigate('DrugsPage', { name: 'Jane' })
+        }
+      />
         
         <TextInput style = {styles.input} 
         autoCapitalize="none" 
@@ -64,11 +65,14 @@ export default class LoginForm extends Component {
 </TouchableOpacity> 
 
 </View>
+</View>
+       </View>
     );
   }
 
   
 }
+
 
 
 const styles = StyleSheet.create({
@@ -90,6 +94,16 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         fontWeight: '700'
+    },
+    loginContainer:{
+        alignItems: 'center',
+        flexGrow: 1,
+        justifyContent: 'center'
+    },
+    logo: {
+      //  position: 'absolute',
+        width: 300,
+        height: 100
     }
 });
 

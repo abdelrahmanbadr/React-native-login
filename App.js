@@ -16,8 +16,8 @@ import {
   
 } from 'react-native';
 
-import LoginPage from './app/pages/LoginPage/LoginPage';
-import Test from './app/pages/Test';
+import LoginForm from './app/pages/LoginPage/LoginForm';
+import DrugsPage from './app/pages/DrugsPage/DrugsPage';
 import { StackNavigator } from 'react-navigation';
 
 const instructions = Platform.select({
@@ -28,9 +28,7 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -38,14 +36,15 @@ export default class App extends Component {
       {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
               
             {/* <LoginPage /> */}
+
           <Text>Hello </Text>
             {/* <Test /> */}
-            {/* <Button
+            <Button
         title="Go to Jane's profile"
         onPress={() =>
-          navigate('Profile', { name: 'Jane' })
+          navigate('LoginForm', { name: 'Jane' })
         }
-      /> */}
+      />
             
       
        
@@ -58,7 +57,8 @@ export default class App extends Component {
 
 const screens = StackNavigator({
   Home: { screen: App },
-  Login: { screen: LoginPage },
+  DrugsPage: { screen: DrugsPage },
+  LoginForm: { screen: LoginForm},
 });
 AppRegistry.registerComponent('pvradar', () => screens);
 
