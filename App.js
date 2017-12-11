@@ -10,11 +10,15 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  Button,
+  AppRegistry
+  
 } from 'react-native';
 
 import LoginPage from './app/pages/LoginPage/LoginPage';
 import Test from './app/pages/Test';
+import { StackNavigator } from 'react-navigation';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,13 +28,24 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View >
       {/* <Image source={require('./wallpaper.png')}  style={{  flex: 1 , position:'absolute'}} /> */}
               
-            <LoginPage />
+            {/* <LoginPage /> */}
+          <Text>Hello </Text>
             {/* <Test /> */}
+            {/* <Button
+        title="Go to Jane's profile"
+        onPress={() =>
+          navigate('Profile', { name: 'Jane' })
+        }
+      /> */}
             
       
        
@@ -39,6 +54,13 @@ export default class App extends Component {
     );
   }
 }
+
+
+const screens = StackNavigator({
+  Home: { screen: App },
+  Login: { screen: LoginPage },
+});
+AppRegistry.registerComponent('pvradar', () => screens);
 
 const styles = StyleSheet.create({
   container: {
